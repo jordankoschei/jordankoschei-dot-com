@@ -1,1 +1,1 @@
-# jordankoschei-dot-com
+# jordankoschei.com
