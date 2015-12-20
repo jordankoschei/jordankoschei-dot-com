@@ -11,4 +11,5 @@ body {
   // border-top: 1px #444 solid;
   color: #444;
   font-family: map-get($fonts, serif);
+  min-width: 320px;
 }
