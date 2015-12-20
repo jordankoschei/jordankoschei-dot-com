@@ -1,0 +1,27 @@
+a {
+  box-shadow: inset 0 -2px 0 transparentize(#bbb, .75);
+  color: #0074D9;
+  line-height: 1;
+  padding: 0 .125em;
+  position: relative;
+  text-decoration: none;
+  transition: color .0625s ease, background .0625s ease;
+
+  &:hover,
+  &:focus {
+    background-color: transparentize(#0074D9, .95);
+  }
+
+  &:active { top: 1px; }
+}
+
+.container a {
+  &:visited {
+    color: #85144b;
+
+    &:hover,
+    &:focus {
+      background-color: transparentize(lighten(#85144b, 20%), .95);
+    }
+  }
+}

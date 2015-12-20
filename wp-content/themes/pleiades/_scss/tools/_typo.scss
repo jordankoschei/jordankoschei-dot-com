@@ -1,0 +1,16 @@
+$base-font-size: $typecsset-base-font-size;
+$base-line-height: $typecsset-base-line-height;
+$magic-number: $typecsset-magic-number;
+$magic-ratio: $typecsset-magic-ratio;
+
+@mixin font-size($font-size, $line-height: true) {
+	@include typecsset-font-size($font-size, $line-height);
+}
+
+%u-unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}

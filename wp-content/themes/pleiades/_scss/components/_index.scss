@@ -1,0 +1,50 @@
+// .c-pagination {
+//   border-top: 1px #eee solid;
+//   margin-top: $typecsset-magic-number;
+//   margin-top: $typecsset-magic-ratio + rem;
+//   padding-top: $typecsset-magic-number;
+//   padding-top: $typecsset-magic-ratio + rem;
+//   @extend .u-clearfix;
+// }
+
+// .c-pagination__older,
+// .c-pagination__newer {
+//   box-shadow: none;
+
+//   &,
+//   &:visited {
+//     color: #555;
+//     @include typecsset-font-size(18px, false);
+
+//     &:hover,
+//     &:focus {
+//       background-color: transparentize(lighten(#0074D9, 20%), .95);
+//     }
+
+//     &:before {
+//       border-bottom-color: #eee;
+//     }
+//   }
+// }
+// .c-pagination__older { float: right; }
+// .c-pagination__newer { float: left; }
+
+
+.blog {
+
+  .post {
+    & + .post {
+      @include sizing(padding-top, 2);
+    }
+  }
+
+  .post-title {
+    @include font-size(18px);
+    @include sizing(margin-bottom);
+
+    a {
+      color: #222;
+    }
+  }
+
+}

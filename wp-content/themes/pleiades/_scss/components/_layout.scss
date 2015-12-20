@@ -1,0 +1,41 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $site-max-width;
+  @include sizing(padding, 1.5);
+  @include clearfix();
+  position: relative;
+  z-index: 1;
+}
+
+.inner {
+  height: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $site-max-width;
+  @include sizing(padding-left, 1.5);
+  @include sizing(padding-right, 1.5);
+}
+
+.container-subtitle {
+  border-bottom: 2px #eee solid;
+  color: #222;
+  @include font-size(20px);
+  margin-top: 0;
+  @include sizing(margin-bottom, .75);
+  @include sizing(padding-bottom, .75);
+}
+
+.container-secondary {
+  display: inline-block;
+  float: left;
+  @include sizing(padding-right, 1.5);
+  width: 35%;
+}
+
+.container-primary {
+  display: inline-block;
+  float: right;
+  @include sizing(padding-left, 1.5);
+  width: 65%;
+}

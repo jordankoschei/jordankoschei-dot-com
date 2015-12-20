@@ -1,0 +1,81 @@
+h1, h2, h3, h4, h5, h6 {
+  color: #222;
+}
+
+pre {
+  background-color: #23241f;
+  border-radius: 5px;
+  color: #f8f8f2;
+  display: inline-block;
+  font-size: .75em;
+  margin: 0 0 1em;
+  padding: 1em;
+  overflow-x: scroll;
+  width: 100%;
+}
+@media (min-width: 48em) {
+  pre { margin-bottom: 2em; }
+}
+
+hr {
+  border-top: none;
+  border-bottom: 1px #ddd solid;
+  margin-bottom: $typecsset-magic-number;
+  margin-bottom: $typecsset-magic-ratio + rem;
+}
+
+blockquote {
+  background-color: #f4f4f4;
+  border-left: 3px #eee solid;
+  margin-left: 0;
+  margin-right: 0;
+  padding: $typecsset-magic-number;
+  padding: $typecsset-magic-ratio + rem;
+  @include typecsset-space(padding-left);
+
+  p:last-child { margin-bottom: 0; }
+}
+
+blockquote.noquotes {
+  p:before,
+  p:after { content: ''; }
+  p { text-indent: 0; }
+}
+p.noquotes {
+  text-indent: 0;
+  
+  &:before,
+  &:after { content: ''; }
+}
+
+dfn {
+  font-style: normal;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: .125em;
+    left: 0;
+    right: 0;
+    border-bottom: 1px dotted #aaa;
+  }
+}
+
+i {
+  font-family: Georgia, serif;
+  font-style: normal;
+}
+
+[data-tweet-id] {
+  margin-bottom: 1.5em !important;
+}
+
+::selection    {
+  background-color: #ECF1F7;
+  text-shadow: none;
+}
+::-moz-selection {
+  background-color: #ECF1F7;
+  text-shadow: none;
+}

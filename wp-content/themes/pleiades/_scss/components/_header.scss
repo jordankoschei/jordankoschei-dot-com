@@ -1,0 +1,171 @@
+.header {
+  background-color: #fff;
+  box-shadow: 0 1px 8px transparentize(#000, .75);
+  @include sizing(padding-left, 1.5);
+  @include sizing(padding-right, 1.5);
+  @extend %u-clearfix;
+  position: relative;
+  z-index: 2;
+}
+
+.header-logo {
+  float: left;
+  
+  color: #222;
+  @include font-size(20px);
+  line-height: 27px;
+  text-decoration: none;
+
+  box-shadow: none;
+
+  @extend %u-unselectable;
+
+  @include sizing(padding-top, .75);
+  @include sizing(padding-bottom, .75);
+  @include sizing(padding-left, .25);
+  @include sizing(padding-right, .25);
+
+  dfn {
+    font-style: normal;
+    font-weight: bold;
+    color: transparentize(#fff, 1);
+    position: relative;
+
+    &:before { display: none; }
+
+    &:after {
+      color: #222;
+      content: 'Koschei';
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+
+    dfn {
+      &:after {
+        content: '[kō-shī]';
+      }
+    }
+  }
+
+  &:active { top: 0; }
+}
+
+.header-menu {
+  float: right;
+}
+.header-menu-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu-item {
+  display: inline-block;
+  float: left;
+
+  a {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+
+    box-shadow: none;
+
+    @include font-size(16px);
+    line-height: 27px;
+
+    @include sizing(padding-top, .75);
+    @include sizing(padding-bottom, .75);
+    @include sizing(padding-left, .75);
+    @include sizing(padding-right, .75);
+    text-decoration: none;
+
+    color: #555;
+
+    &:before {
+      content: '';
+      position: absolute;
+      @include sizing(left, .65);
+      @include sizing(right, .65);
+      @include sizing(top, 1.25);
+      height: 0;
+      background-color: #ddd;
+      z-index: -1;
+      transition: .0625s height ease;
+    }
+
+    &:hover,
+    &:focus {
+      // background-color: transparentize(#ECF1F7, .5);
+      background-color: transparent;
+
+      &:before {
+        height: .5em;
+      }
+    }
+
+    &:active { top: 0; }
+  }
+}
+
+.menu-item-social {
+  a {
+    @extend %u-hide-text;
+    float: left;
+    position: relative;
+    @include sizing(width, 2.5);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    @include sizing(background-size, .9);
+
+    &:before { display: none; }
+
+    &:after {
+      content: '';
+      background-position: center 1.6em;
+      background-repeat: no-repeat;
+      @include sizing(background-size, .9);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      transition: bottom .1s ease;
+    }
+  }
+
+  &.twitter a {
+    background-image: url('../img/twitter-gray.svg');
+
+    &:after {
+      background-color: #50abf1;
+      background-image: url('../img/twitter.svg');
+    }
+
+    &:hover,
+    &:focus {
+      &:after {
+        bottom: 0;
+      }
+    }
+  }
+  &.email a {
+    background-image: url('../img/mail-gray.svg');
+
+    &:after {
+      background-color: #fcb314;
+      background-image: url('../img/mail.svg');
+    }
+
+    &:hover,
+    &:focus {
+      &:after {
+        bottom: 0;
+      }
+    }
+  }
+}
