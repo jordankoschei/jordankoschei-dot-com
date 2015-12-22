@@ -8,15 +8,6 @@
   z-index: 1;
 }
 
-.inner {
-  height: 0;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: $site-max-width;
-  @include sizing(padding-left, 1.5);
-  @include sizing(padding-right, 1.5);
-}
-
 .container-subtitle {
   border-bottom: 2px #eee solid;
   color: #222;

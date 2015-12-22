@@ -17,13 +17,15 @@
 <body <?php body_class(); ?>>
 
   <header class="header">
-    <a href="<?php echo site_url(); ?>" class="header-logo">Jordan <dfn title="[kō-shī]">Koschei</dfn></a>
+    <a href="<?php echo site_url(); ?>" class="header-logo">Jordan <dfn title="[kō-shī]"><span>Koschei</span></dfn></a>
 
     <nav class="header-menu">
       <ul class="header-menu-items">
         <?php wp_nav_menu(array('theme_location' => 'header-menu', 'container' => false, 'items_wrap' => '%3$s')); ?>
-        <li class="menu-item menu-item-social twitter"><a href="https://twitter.com/jordankoschei">@jordankoschei</a></li>
-        <li class="menu-item menu-item-social email"><a href='ma&#105;lto&#58;j&#111;&#114;%64&#37;61n&#64;jor%&#54;4&#97;n&#107;&#37;&#54;F%73%63hei&#46;co&#37;6&#68;'>jord&#97;n&#64;jordan&#107;o&#115;c&#104;&#101;i&#46;&#99;o&#109;</a></li>
+      </ul>
+      <ul class="header-social">
+        <li class="header-social-item twitter"><a href="https://twitter.com/jordankoschei">@jordankoschei</a></li>
+        <li class="header-social-item mail"><a href='ma&#105;lto&#58;j&#111;&#114;%64&#37;61n&#64;jor%&#54;4&#97;n&#107;&#37;&#54;F%73%63hei&#46;co&#37;6&#68;'>jord&#97;n&#64;jordan&#107;o&#115;c&#104;&#101;i&#46;&#99;o&#109;</a></li>
       </ul>
     </nav>
   </header>

@@ -1,0 +1,6 @@
+.home-hero {
+  background-color: #ddd;
+  @include sizing(padding, 2.5);
+  height: 18em;
+  text-align: center;
+}

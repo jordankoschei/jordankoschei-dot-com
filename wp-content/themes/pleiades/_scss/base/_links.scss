@@ -14,9 +14,7 @@ a {
     outline: none;
   }
 
-  &:not(.no-click):active { top: 1px; }
-
-  &:not(.no-visited):visited {
+  &:visited {
     color: map-get($colors, linkVisited);
 
     &:hover,
@@ -25,6 +23,8 @@ a {
       background-color: transparentize(map-get($colors, linkVisited), .95);
     }
   }
+
+  &:not(.no-click):active { top: 1px; }
 
   &.no-border {
     box-shadow: none;
@@ -39,7 +39,7 @@ a {
       position: absolute;
       left: 0;
       right: 0;
-      top: calc(50% + .25em);
+      top: calc(50% + .125em);
       height: 0;
       background-color: #e6e6e6;
       z-index: -1;
@@ -52,6 +52,40 @@ a {
 
       &:before {
         height: .5em;
+      }
+    }
+  }
+
+  &.link-tile {
+    background-color: transparent;
+    box-shadow: none;
+    position: relative;
+    z-index: 1;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    @include media('>sm') {
+      &:after {
+        background-color: #f8f8f8;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        transition: bottom .0625s ease;
+        z-index: -1;
+      }
+
+      &:hover,
+      &:focus {
+        &:after {
+          bottom: 0;
+        }
       }
     }
   }

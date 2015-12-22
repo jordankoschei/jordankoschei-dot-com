@@ -4,11 +4,10 @@ html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
-    background-color: #f8f8f8;
+    background-color: #F9FAFA;
 }
 
 body {
-  // border-top: 1px #444 solid;
   color: #444;
   font-family: map-get($fonts, serif);
   min-width: 320px;

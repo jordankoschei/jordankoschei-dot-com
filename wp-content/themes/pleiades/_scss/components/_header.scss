@@ -1,19 +1,26 @@
 .header {
   background-color: #fff;
-  border-bottom: 1px #eee solid;
+  box-shadow: 0 1px 4px transparentize(#000, .8);
+  position: relative;
   text-align: center;
+  z-index: 2;
 
-  @include sizing(padding-left,   1.5);
-  @include sizing(padding-right,  1.5);
   @include sizing(padding-top,     .5);
   @include sizing(padding-bottom,  .5);
 
   @extend %u-clearfix;
+
+  @include media('>md') {
+    border-bottom: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    @include sizing(padding-left,   1.5);
+    text-align: left;
+  }
 }
 
-.header-menu { display: none; }
-
-.header-logo {
+a.header-logo {
   color: #222;
 
   @include font-size(20px);
@@ -21,228 +28,184 @@
   display: inline-block;
   @include sizing(padding-left, .125);
   @include sizing(padding-right, .125);
-
   @include sizing(margin-bottom, .5);
 
   @extend %u-unselectable;
   @extend .no-border;
-  @extend .no-visited;
 
   dfn {
-    color: transparentize(#fff, 1);
     font-weight: bold;
     position: relative;
+    transition: color .125s ease;
+
+    span { transition: transform .125s ease; }
 
     &:before { display: none; }
-
     &:after {
-      color: #222;
-      content: 'Koschei';
+      color: transparentize(#222, 1);
+      content: '[kō-shī]';
+      letter-spacing: .0125em;
       position: absolute;
       left: 0;
+      transition: color .125s ease, transform .125s ease;
+      transform: scaleY(0);
+      white-space: nowrap;
     }
   }
 
   &:hover,
   &:focus {
+    background-color: transparent;
+
     dfn {
-      &:after { content: '[kō-shī]'; }
+      color: transparentize(#222, 1);
+
+      span { transform: scaleY(0); }
+
+      &:after {
+        color: #222;
+        transform: scaleY(1);
+      }
+    }
+  }
+
+  &:active { top: 0; }
+
+  @include media('>md') {
+    line-height: 27px;
+
+    float: left;
+    margin-bottom: 0;
+    @include sizing(padding-top, .75);
+    @include sizing(padding-bottom, .75);
+    @include sizing(padding-left, .25);
+    @include sizing(padding-right, .25);
+  }
+}
+
+.header-menu {
+  display: inline-block;
+  width: 100%;
+
+  @include media('>md') {
+    display: block;
+    float: right;
+    width: auto;
+  }
+}
+.header-menu-items {
+  display: inline-block;
+  
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include media('>md') {
+    display: block;
+    float: left;
+  }
+}
+
+.menu-item {
+  display: inline-block;
+  float: left;
+  @include sizing(margin-left, .5);
+  @include sizing(margin-right, .5);
+
+  a {
+    @extend .link-alt;
+    @include font-size(16px);
+    line-height: 27px;
+    color: #444;
+
+    &:before { background-color: transparentize(darken(map-get($colors, link), 5%), .5); }
+  }
+
+  @include media('>md') {
+    margin-left: 0;
+    margin-right: 0;
+
+    a {
+      display: inline-block;
+      @include sizing(padding, .75);
+
+      &:before {
+        @include sizing(left, .65);
+        @include sizing(right, .65);
+        background-color: transparentize(darken(map-get($colors, link), 5%), .5);
+      }
+
+      &:hover,
+      &:focus {
+        &:before { height: .5em; }
+      }
+      &:active { top: 0; }
     }
   }
 }
 
-// .header {
-//   @include media('>sm') {
-//     border-bottom: none;
-//     box-shadow: 0 1px 8px transparentize(#000, .75);
-//     padding-top: 0;
-//     padding-bottom: 0;
-//     text-align: left;
-//     z-index: 2;
-//   }
-// }
+.header-social {
+  display: none;
 
-// .header-logo {
+  @include media('>md') {
+    background-color: #ECF0F1;
+    display: inline-block;
+    float: left;
+    list-style: none;
+    margin: 0;
+    @include sizing(margin-left, .5);
+    padding: 0;
+  }
+}
+.header-social-item {
+  float: left;
 
-//   @include media('>sm') {
-//     float: left;
-//     @include font-size(20px);
-//     line-height: 27px;
-//     margin-bottom: 0;
-//     position: relative;
-//     @include sizing(padding-top, .75);
-//     @include sizing(padding-bottom, .75);
+  a {
+    @extend %u-hide-text;
+    @extend .no-border;
+    float: left;
+    position: relative;
+    @include sizing(width, 2.5);
+    @include sizing(padding-top, .75);
+    @include sizing(padding-bottom, .75);
+    transition: background .125s ease;
 
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      @include sizing(background-size, .75);
+      transition: transform .0625s ease;
+    }
+    &:before {
+      transform: scaleY(0);
+      transition-delay: .0625s;
+    }
 
-//     &:hover,
-//     &:focus {
-//       background-color: transparent;
+    &:hover,
+    &:focus {
+      &:before { transform: scaleY(1); }
+      &:after {  transform: scaleY(0); }
+    }
+  }
 
-//       dfn:after {
-//         content: '[kō-shī]';
-//       }
-//     }
+  &.twitter a {
+    &:hover,
+    &:focus  { background-color: #50abf1; }
+    &:before { background-image: url('../img/twitter.svg'); }
+    &:after  { background-image: url('../img/twitter-gray.svg'); }
+  }
 
-//     &:active { top: 0; }
-
-//     dfn {
-//       color: transparentize(#fff, 1);
-//       position: relative;
-//       white-space: nowrap;
-
-//       &:after {
-//         color: #222;
-//         content: 'Koschei';
-//         position: absolute;
-//         left: 0;
-//       }
-//     }
-//   }
-// }
-
-// .header-menu {
-//   display: inline-block;
-//   width: 100%;
-
-//   @include media('>sm') {
-//     display: block;
-//     float: right;
-//     width: auto;
-//   }
-// }
-
-// .header-menu-items {
-//   display: inline-block;
-//   list-style: none;
-//   margin: 0;
-//   padding: 0;
-
-//   @include media('>sm') { display: block; }
-// }
-
-// .menu-item {
-//   display: inline-block;
-//   float: left;
-//   @include sizing(margin-left, .25);
-//   @include sizing(margin-right, .25);
-
-//   a {
-//     box-shadow: none;
-//     @include font-size(16px);
-//     color: #555;
-//     display: inline-block;
-//     position: relative;
-//     z-index: 1;
-
-//     &:hover,
-//     &:focus {
-//       background-color: transparent;
-
-//       &:before { background-color: transparentize(#0074D9, .85); }
-//     }
-
-//     &:before {
-//       content: '';
-//       position: absolute;
-//       left: 0;
-//       right: 0;
-//       top: 1em;
-//       height: .5em;
-//       background-color: #eee;
-//       z-index: -1;
-//       transition: .0625s all ease;
-//     }
-//   }
-
-//   @include media('>sm') {
-//     margin-left: 0;
-//     margin-right: 0;
-
-//     a {
-//       line-height: 27px;
-//       @include sizing(padding-top, .75);
-//       @include sizing(padding-bottom, .75);
-//       @include sizing(padding-left, .75);
-//       @include sizing(padding-right, .75);
-
-//       &:before {
-//         height: 0;
-//         @include sizing(left, .65);
-//         @include sizing(right, .65);
-//         @include sizing(top, 1.25);
-//         background-color: #ddd;
-//       }
-
-//       &:hover,
-//       &:focus {
-//         &:before {
-//           background-color: #ddd;
-//           height: .5em;
-//         }
-//       }
-//       &:active { top: 0; }
-//     }
-//   }
-// }
-
-// .menu-item-social { display: none; }
-
-
-// // .menu-item-social {
-// //   a {
-// //     @extend %u-hide-text;
-// //     float: left;
-// //     position: relative;
-// //     @include sizing(width, 2.5);
-
-// //     background-position: center;
-// //     background-repeat: no-repeat;
-// //     @include sizing(background-size, .9);
-
-// //     &:before { display: none; }
-
-// //     &:after {
-// //       content: '';
-// //       background-position: center 1.6em;
-// //       background-repeat: no-repeat;
-// //       @include sizing(background-size, .9);
-// //       position: absolute;
-// //       top: 0;
-// //       left: 0;
-// //       right: 0;
-// //       bottom: 100%;
-// //       transition: bottom .1s ease;
-// //     }
-// //   }
-
-// //   &.twitter a {
-// //     background-image: url('../img/twitter-gray.svg');
-
-// //     &:after {
-// //       background-color: #50abf1;
-// //       background-image: url('../img/twitter.svg');
-// //     }
-
-// //     &:hover,
-// //     &:focus {
-// //       &:after {
-// //         bottom: 0;
-// //       }
-// //     }
-// //   }
-// //   &.email a {
-// //     background-image: url('../img/mail-gray.svg');
-
-// //     &:after {
-// //       background-color: #fcb314;
-// //       background-image: url('../img/mail.svg');
-// //     }
-
-// //     &:hover,
-// //     &:focus {
-// //       &:after {
-// //         bottom: 0;
-// //       }
-// //     }
-// //   }
-// // }
+  &.mail a {
+    &:hover,
+    &:focus  { background-color: #fcb314; }
+    &:before { background-image: url('../img/mail.svg'); }
+    &:after  { background-image: url('../img/mail-gray.svg'); }
+  }
+}
