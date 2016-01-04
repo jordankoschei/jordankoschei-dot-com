@@ -3,6 +3,12 @@
   margin-top: 0;
 }
 
+.single .container-primary {
+  @include media('>md') {
+    @include sizing(padding-top, 1);
+  }
+}
+
 .post-date {
   color: #aaa;
   margin-bottom: 4px;
@@ -10,16 +16,24 @@
 }
 
 .single .post {
-  background-color: #fff;
-  @include sizing(padding, 2);
-  @include sizing(margin-top, -4.125);
-
   img {
-    @include sizing(margin-left, -2);
-    @include sizing(margin-right, -2);
+    @include sizing(margin-left, -1.5);
+    @include sizing(margin-right, -1.5);
     @include sizing(margin-top, 1);
     @include sizing(margin-bottom, 1);
-    width: calc(100% + 108px);
+    max-width: none;
+    width: calc(100% + 81px);
+  }
+
+  .wp-caption {
+    @include sizing(margin-bottom, 1);
+    width: 100% !important;
+
+    img { margin-bottom: 0; }
+
+    p {
+      @extend .img-caption;
+    }
   }
 
   p:last-child,
@@ -28,96 +42,17 @@
   }
 }
 
-.single .container-secondary {
-  @include sizing(padding-top, 1);
-}
-
-.hero-attr {
-  color: #aaa;
-  display: inline-block;
-  @include font-size(14px, false);
-  width: 35%;
-  @include sizing(padding-right, 1.5);
-  @include sizing(padding-top, .25);
-  font-style: italic;
-}
-
-.hero { max-width: 100%; }
-
-.post-categories {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    @include sizing(margin-top, .5);
-    display: inline-block;
-  }
-
-  a {
-    background-color: #ccc;
-    border-radius: 1em;
-    text-decoration: none;
-    @include sizing(padding-left, .5);
-    @include sizing(padding-right, .5);
-    @include sizing(padding-top, .125);
-    @include sizing(padding-bottom, .125);
+.hero-caption {
+  @include media('>md') {
+    width: 35%;
+    @include sizing(padding-right, 1.5);
+    @include sizing(padding-top, .25);
+    height: 0;
   }
 }
 
-.post-social {
-  float: right;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  @include sizing(width, 2);
-  position: absolute;
-  left: 35%;
-  @include sizing(margin-left, -2);
-
-  li {
-    display: inline-block;
-    float: left;
-
-    & + li {
-      @include sizing(margin-top, .125);
-    }
-  }
-
-  a {
-    @extend %u-hide-text;
-    box-shadow: none;
-    float: left;
-    position: relative;
-    @include sizing(width, 2);
-    @include sizing(height, 2);
-
-    background-position: center;
-    background-repeat: no-repeat;
-    @include sizing(background-size, 1);
-  }
-
-  .post-social-twitter a {
-    background-color: #55acee;
-  }
-
-  .post-social-hn a {
-    background-color: #ff6600;
-  }
-
-  .post-social-dn a {
-    background-color: #2d72d9;
-  }
-}
-
-.post-social-container {
-  position: absolute;
-  @include sizing(padding-top, 2);
-  left: 0;
-  height: 10px;
-  right: 0;
-  top: 0;
-
-  &.is-sticky { position: fixed; }
+.hero-caption-desktop {
+  @include sizing(margin-bottom, .5);
+  position: relative;
+  @include sizing(top, -.85);
 }

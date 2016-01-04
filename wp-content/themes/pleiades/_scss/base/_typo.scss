@@ -79,3 +79,7 @@ i {
   background-color: #ECF1F7;
   text-shadow: none;
 }
+
+p {
+  &:last-child { margin-bottom: 0; }
+}

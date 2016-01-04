@@ -6,6 +6,27 @@ add_action('init', function() {
 });
 
 
+// Add featured image
+add_theme_support('post-thumbnails');
+
+
+// Get featured image caption
+function get_post_thumbnail_caption() {
+  global $post;
+
+  $thumbnail_id    = get_post_thumbnail_id($post->ID);
+  if( ! $thumbnail_id ) { return false; }
+  
+  $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+
+  if( $thumbnail_image && isset($thumbnail_image[0]) ) {
+    return $thumbnail_image[0]->post_excerpt;
+  } else {
+    return false;
+  }
+}
+
+
 // Add code highlighting
 add_action('wp_enqueue_scripts', function() {
   wp_enqueue_script('highlight', get_template_directory_uri() . '/assets/js/highlight.min.js', array(), '1', true);

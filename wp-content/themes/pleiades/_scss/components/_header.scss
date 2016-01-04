@@ -1,6 +1,6 @@
 .header {
   background-color: #fff;
-  box-shadow: 0 1px 4px transparentize(#000, .8);
+  box-shadow: 0 1px 4px transparentize(#000, .7);
   position: relative;
   text-align: center;
   z-index: 2;
@@ -28,7 +28,6 @@ a.header-logo {
   display: inline-block;
   @include sizing(padding-left, .125);
   @include sizing(padding-right, .125);
-  @include sizing(margin-bottom, .5);
 
   @extend %u-unselectable;
   @extend .no-border;
@@ -83,6 +82,37 @@ a.header-logo {
   }
 }
 
+.header-tagline {
+  display: none !important;
+  display: block;
+  @include font-size(14px);
+  @include sizing(margin-bottom, .75);
+  color: #999;
+
+  @include media('>md') { display: none; }
+
+  @include media('>lg') {
+    display: inline-block;
+    float: left;
+    // @include font-size(16px);
+    line-height: 27px;
+    margin-bottom: 0;
+    @include sizing(padding-top, .75);
+
+    &:before {
+      content: '\2014';
+      @include sizing(margin-right, .25);
+      @include sizing(margin-left, .125);
+    }
+  }
+}
+
+.header-logo-container {
+  @include media('>md') {
+    float: left;
+  }
+}
+
 .header-menu {
   display: inline-block;
   width: 100%;
@@ -119,6 +149,13 @@ a.header-logo {
     color: #444;
 
     &:before { background-color: transparentize(darken(map-get($colors, link), 5%), .5); }
+
+  }
+
+  &.current-menu-item a:before,
+  &.current_page_parent a:before {
+    background-color: transparentize(darken(map-get($colors, link), 5%), .85);
+    height: .5em;
   }
 
   @include media('>md') {

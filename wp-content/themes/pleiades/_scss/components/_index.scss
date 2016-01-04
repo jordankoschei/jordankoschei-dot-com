@@ -1,36 +1,5 @@
-// .c-pagination {
-//   border-top: 1px #eee solid;
-//   margin-top: $typecsset-magic-number;
-//   margin-top: $typecsset-magic-ratio + rem;
-//   padding-top: $typecsset-magic-number;
-//   padding-top: $typecsset-magic-ratio + rem;
-//   @extend .u-clearfix;
-// }
-
-// .c-pagination__older,
-// .c-pagination__newer {
-//   box-shadow: none;
-
-//   &,
-//   &:visited {
-//     color: #555;
-//     @include typecsset-font-size(18px, false);
-
-//     &:hover,
-//     &:focus {
-//       background-color: transparentize(lighten(#0074D9, 20%), .95);
-//     }
-
-//     &:before {
-//       border-bottom-color: #eee;
-//     }
-//   }
-// }
-// .c-pagination__older { float: right; }
-// .c-pagination__newer { float: left; }
-
-
-.blog {
+.blog,
+.category {
 
   .post {
     & + .post {
@@ -47,4 +16,162 @@
     }
   }
 
+  .container-secondary {
+    @include media('<md') {
+      display: none;
+    }
+  }
+
+}
+
+.categories {
+  display: inline-block;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include sizing(margin-bottom, 1.5);
+}
+
+.cat-item {
+  float: left;
+
+  a {
+    border-radius: 3em;
+    box-shadow: none;
+    display: inline-block;
+    // font-family: map-get($fonts, sans);
+    @include sizing(margin-bottom, .125);
+    @include sizing(margin-right, .125);
+    @include sizing(padding-left, .5);
+    @include sizing(padding-right, .5);
+    @include sizing(padding-bottom, .125);
+
+    color: #fff;
+    @include font-size(15px);
+    text-shadow: 0 1px 1px transparentize(#000 ,.85);
+
+    transition: background .125s ease;
+  }
+
+  &.current-cat {
+    a {
+      cursor: default;
+      opacity: .25;
+
+      &:active { top: 0; }
+    }
+  }
+}
+
+$categories: (
+  'design': #c0392b,
+  'education': #d35400,
+  'theology': #f39c12,
+  'hudson-valley': #27ae60,
+  'media': #2980b9,
+  'personal': #8e44ad,
+  'programming': #16a085,
+  'space': #2c3e50,
+  'technology': #7f8c8d,
+  'all': #444
+);
+
+@each $slug, $color in $categories {
+  .category-#{$slug} .hero:after {
+    background-color: transparentize($color, .5);
+  }
+
+  .cat-item-#{$slug} {
+    a {
+      background-color: transparentize($color, .25);
+
+      &:hover,
+      &:focus {
+        background-color: lighten($color, 5%);
+      }
+    }
+
+    &.current-cat a {
+      background-color: lighten($color, 5%);
+    }
+  }
+}
+
+
+.elsewhere {
+  display: inline-block;
+  position: relative;
+  @include sizing(margin-bottom, 1);
+  @include sizing(padding, 1);
+  width: 100%;
+
+  background-color: #fff;
+  box-shadow: none;
+  border: 1px #ecf0f1 solid;
+  border-radius: 4px;
+
+  text-align: center;
+
+  &:after {
+    content: '\2192';
+    display: block;
+    @include sizing(margin-top, .75);
+    margin-bottom: -.5em;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.elsewhere-title {
+  @include font-size(22px);
+  @include sizing(margin-bottom, 1);
+  color: #2c3e50;
+  display: inline-block;
+  width: 100%;
+  font-weight: bold;
+}
+
+.elsewhere-date {
+  color: #95a5a6;
+  @include font-size(14px);
+}
+
+.elsewhere-venue {
+  color: #95a5a6;
+  @include font-size(16px);
+}
+
+
+.pagination {
+  display: inline-block;
+  width: 100%;
+
+  border-top: 2px #eee solid;
+  @include sizing(margin-top, 1);
+  @include sizing(padding-top, .5);
+
+  a {
+    @include font-size(14px);
+    box-shadow: none;
+  }
+
+  @include media('>md') {
+    border-top: none;
+    padding-top: 0;
+    float: right;
+    width: 60%;
+
+    a { @include font-size(16px); }
+  }
+}
+.pagination-prev { float: left; }
+.pagination-next { float: right; }
+
+
+.featured {
+  
 }

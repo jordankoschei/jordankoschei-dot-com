@@ -4,18 +4,20 @@
 
 <?php get_header(); ?>
 
+  <div class="hero">
+    <div class="inner">
+      <h1 class="hero-title">Speaking</h1>
+    </div>
+  </div>
+
   <div class="container">
 
     <div class="container-secondary">
-      <h2 class="container-subtitle">Speaking</h2>
-    
       <p>I love speaking to groups about impact-driven design and its effects on business and society. My most popular talk is <em>Design for Engineers (and Other Non-Designers)</em>. You can find the slides <a href="http://www.slideshare.net/JordanKoschei/design-for-engineers-and-other-nondesigners">here</a>.</p>
-      <p>If you're interested in having me speak at your event, you should <a href="#">get in touch</a>.</p>
-
-      <a href="#" class="cta">Get in Touch</a>
+      <p>If you're interested in having me speak at your event, you should <a href="ma&#105;lto&#58;j&#111;&#114;%64&#37;61n&#64;jor%&#54;4&#97;n&#107;&#37;&#54;F%73%63hei&#46;co&#37;6&#68;">get in touch</a>.</p>
     </div>
 
-    <div class="container-primary">
+    <section class="container-primary">
       <h2 class="container-subtitle">Recent Talks</h2>
 
       <article class="speaking">
@@ -73,7 +75,7 @@
         <date class="speaking-date">January 28, 2015</date>
         <span class="speaking-location">Gusto (Poughkeepsie, NY)</span>
       </article>
-    </div>
+    </section>
 
   </div>
 

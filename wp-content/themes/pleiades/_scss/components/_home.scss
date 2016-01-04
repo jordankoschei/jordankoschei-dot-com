@@ -2,5 +2,6 @@
   background-color: #ddd;
   @include sizing(padding, 2.5);
   height: 18em;
+  position: relative;
   text-align: center;
 }

@@ -1,29 +1,40 @@
 <?php get_header(); ?>
 
-  <img src="<?php echo get_template_directory_uri(); ?>/assets/img/speaking.jpg" class="hero">
-  <div class="inner">
-    <span class="hero-attr">Picture taken by Daniel Fitzgerald at CatskillsConf.</span>
+  <?php $has_image = has_post_thumbnail(); ?>
+  <div class="hero <?php if($has_image) { echo 'has-image'; } ?>">
+    <?php the_post_thumbnail(); ?>
   </div>
+  <?php if( get_post_thumbnail_caption() ) : ?>
+  <div class="inner mobile-only"><span class="img-caption hero-caption"><?php echo get_post_thumbnail_caption(); ?></span></div>
+  <?php endif; ?>
 
   <div class="container" id="container">
 
-    <div class="container-secondary">
-<!--       <span class="post-date"><?php echo get_the_date(); ?></span>
-      <?php the_category(); ?> -->
-    </div>
-
     <article class="post container-primary">
+      <span class="post-date"><?php echo get_the_date(); ?></span>
       <h1 class="post-title"><?php the_title(); ?></h1>
       <div class="post-excerpt"><?php the_content(); ?></div>
     </article>
 
-<!--     <div class="post-social-container inner" id="social">
-      <ul class="post-social">
-        <li class="post-social-twitter"><a href="#">Twitter</a></li>
-        <li class="post-social-hn"><a href="#">Hacker News</a></li>
-        <li class="post-social-dn"><a href="#">Designer News</a></li>
+    <div class="container-secondary">
+    <span class="img-caption hero-caption-desktop desktop-only"><?php echo get_post_thumbnail_caption(); ?></span>
+      <h2 class="container-tertiary">Categories</h2>
+      <ul class="categories">
+        <?php
+        $categories = get_the_category();
+        foreach($categories as $category) {
+          $menu .= '<li class="cat-item cat-item-' . $category->slug . '"><a href="'.get_category_link($category->term_id).'">' . $category->name . '</a></li>';
+        }
+        echo $menu;
+        ?>
       </ul>
-    </div> -->
+
+    </div>
+
+    <nav class="pagination">
+      <span class="pagination-prev"><?php next_post_link( '%link', '&larr; <span class="gt-lg">%title</span><span class="lt-lg">Newer Post</span>' ); ?></span>
+      <span class="pagination-next"><?php previous_post_link( '%link', '<span class="gt-lg">%title</span><span class="lt-lg">Older Post</span> &rarr;' ); ?></span>
+    </nav>
 
   </div>
 
