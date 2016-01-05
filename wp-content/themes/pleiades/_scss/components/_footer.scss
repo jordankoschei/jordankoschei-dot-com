@@ -1,56 +1,79 @@
 .footer {
-  border-top: 1px #eee solid;
+  @include sizing(margin-top, 2);
+  @include sizing(margin-bottom, 1);
   text-align: center;
 
-  @include sizing(padding-top, 1);
-  @include sizing(padding-bottom, 1);
-
   @include media('>md') {
-    @include sizing(padding-top, 1.5);
-    @include sizing(padding-bottom, 1.5);
+    @include sizing(margin-top, 1);
   }
-
-  .inner { height: auto; }
 }
 
 .copyright {
-  @include font-size(16px);
-  color: #aaa;
-  display: inline-block;
-  font-style: italic;
-  width: 100%;
+  @include font-size(15px);
+  color: #bdc3c7;
 
-  @include media('>sm') {
-    float: left;
-    width: auto;
-  }
-}
-
-.footer-social {
-  display: inline-block;
-  list-style: none;
-  margin: 0;
-  @include sizing(margin-bottom, .5);
-  padding: 0;
-
-  li {
-    float: left;
-    @include sizing(margin-left, .25);
-    @include sizing(margin-right, .25);
-  }
-
-  @include media('>sm') {
+  @include media('>md') {
     float: right;
-    margin-bottom: 0;
-
-    li {
-      margin-right: 0;
-      @include sizing(margin-left, .75);
-    }
-    a {
-      @include font-size(16px);
-    }
   }
 }
 
-.footer { display: none; }
+.home .copyright {
+  float: none !important;
+}
+
+// .footer {
+//   border-top: 1px #eee solid;
+//   text-align: center;
+
+//   @include sizing(padding-top, 1);
+//   @include sizing(padding-bottom, 1);
+
+//   @include media('>md') {
+//     @include sizing(padding-top, 1.5);
+//     @include sizing(padding-bottom, 1.5);
+//   }
+
+//   .inner { height: auto; }
+// }
+
+// .copyright {
+//   @include font-size(16px);
+//   color: #aaa;
+//   display: inline-block;
+//   font-style: italic;
+//   width: 100%;
+
+//   @include media('>sm') {
+//     float: left;
+//     width: auto;
+//   }
+// }
+
+// .footer-social {
+//   display: inline-block;
+//   list-style: none;
+//   margin: 0;
+//   @include sizing(margin-bottom, .5);
+//   padding: 0;
+
+//   li {
+//     float: left;
+//     @include sizing(margin-left, .25);
+//     @include sizing(margin-right, .25);
+//   }
+
+//   @include media('>sm') {
+//     float: right;
+//     margin-bottom: 0;
+
+//     li {
+//       margin-right: 0;
+//       @include sizing(margin-left, .75);
+//     }
+//     a {
+//       @include font-size(16px);
+//     }
+//   }
+// }
+
+// .footer { display: none; }

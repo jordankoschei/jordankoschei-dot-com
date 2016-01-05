@@ -2,6 +2,7 @@
 
   <div class="hero">
     <div class="inner">
+      <h1 class="hero-title">Writing</h1>
     </div>
   </div>
 

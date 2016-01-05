@@ -26,6 +26,7 @@ a.header-logo {
   @include font-size(20px);
 
   display: inline-block;
+  @include sizing(margin-bottom, .5);
   @include sizing(padding-left, .125);
   @include sizing(padding-right, .125);
 

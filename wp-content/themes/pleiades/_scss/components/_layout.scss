@@ -169,3 +169,9 @@
 
 .lt-lg { @include media('>lg') { display: none; } }
 .gt-lg { @include media('<lg') { display: none; } }
+
+.is-hidden { visibility: hidden; }
+
+.page-template-about .hero:after {
+  // background-color: darken(#F1BB00, 10%);
+}
