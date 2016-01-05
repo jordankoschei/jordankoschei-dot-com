@@ -70,9 +70,9 @@
           $menu .= '<li class="cat-item cat-item-' . $category->slug . ' ' . $cur . '"><a href="'.get_category_link($category->term_id).'">' . $category->name . '</a></li>';
         }
         if( is_category() ) {
-          $menu .= '<li class="cat-item cat-item-all"><a href="'.site_url().'">All Categories</a></li>';
+          $menu .= '<li class="cat-item cat-item-all"><a href="'.site_url().'/writing">All Categories</a></li>';
         } else {
-          $menu .= '<li class="cat-item current-cat cat-item-all"><a href="'.site_url().'">All Categories</a></li>';
+          $menu .= '<li class="cat-item current-cat cat-item-all"><a href="'.site_url().'/writing">All Categories</a></li>';
         }
         echo $menu;
         ?>
