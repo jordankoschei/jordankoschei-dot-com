@@ -25,7 +25,7 @@
 
     <article class="home-container-block">
       <span class="home-block-heading">Elsewhere &bull; <em>A List Apart</em></span>
-      <h2 class="home-block-title"><a href="" class="no-border">UX for the Enterprise</a></h2>
+      <h2 class="home-block-title"><a href="http://alistapart.com/article/ux-for-the-enterprise" class="no-border">UX for the Enterprise</a></h2>
       <p>Enterprise UX often involves navigating cumbersome processes, ancient technology, and clients skeptical of design’s value. Yet Fortune 500 companies are often the ones most in need of well-designed internal tools. This article talks about common problems lurking in global organizations, and how we can improve people’s lives by giving internal tools the same attention as consumer interfaces.</p>
       <a href="http://alistapart.com/article/ux-for-the-enterprise" class="home-block-link no-border">Continue reading &rarr;</a>
     </article>

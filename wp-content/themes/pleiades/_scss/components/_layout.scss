@@ -160,8 +160,23 @@
 
 .container-secondary-back {
   display: inline-block;
-  @include sizing(margin-bottom, 1);
+  @include sizing(margin-bottom, 1.25);
   @include font-size(15px);
+  position: relative;
+
+  &:before {
+    content: '\2190';
+    position: absolute;
+    left: -1.25em;
+    transition: all .125s ease;
+  }
+
+  &:hover,
+  &:focus {
+    &:before {
+      left: -1.5em;
+    }
+  }
 }
 
 .mobile-only { @include media('>md') { display: none; } }

@@ -18,6 +18,9 @@
 
     <div class="container-secondary">
     <span class="img-caption hero-caption-desktop desktop-only"><?php echo get_post_thumbnail_caption(); ?></span>
+
+      <a href="<?php echo site_url(); ?>/writing" class="container-secondary-back">Back to All Posts</a>
+      
       <h2 class="container-tertiary">Categories</h2>
       <ul class="categories">
         <?php
@@ -28,7 +31,6 @@
         echo $menu;
         ?>
       </ul>
-
     </div>
 
     <nav class="pagination">

@@ -4393,11 +4393,21 @@ a.header-logo:active {
 
 .container-secondary-back {
   display: inline-block;
-  margin-bottom: 27px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 33.75px;
+  margin-bottom: 1.875rem;
   font-size: 15px;
   font-size: 0.83333rem;
   line-height: 1.8;
+  position: relative;
+}
+.container-secondary-back:before {
+  content: '\2190';
+  position: absolute;
+  left: -1.25em;
+  transition: all .125s ease;
+}
+.container-secondary-back:hover:before, .container-secondary-back:focus:before {
+  left: -1.5em;
 }
 
 @media (min-width: 721px) {
