@@ -4579,6 +4579,10 @@ a.header-logo:active {
 .cat-item.current-cat a {
   cursor: default;
   opacity: .25;
+  background-color: rgba(119, 119, 119, 0.75);
+}
+.cat-item.current-cat a:hover, .cat-item.current-cat a:focus {
+  background-color: #848484;
 }
 .cat-item.current-cat a:active {
   top: 0;
@@ -4708,6 +4712,20 @@ a.header-logo:active {
 }
 .cat-item-technology.current-cat a {
   background-color: #8c9899;
+}
+
+.category-politics .hero:after {
+  background-color: rgba(192, 57, 43, 0.5);
+}
+
+.cat-item-politics a {
+  background-color: rgba(192, 57, 43, 0.75);
+}
+.cat-item-politics a:hover, .cat-item-politics a:focus {
+  background-color: #d14233;
+}
+.cat-item-politics.current-cat a {
+  background-color: #d14233;
 }
 
 .category-all .hero:after {
