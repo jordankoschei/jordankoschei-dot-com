@@ -36,18 +36,6 @@ blockquote {
   p:last-child { margin-bottom: 0; }
 }
 
-blockquote.noquotes {
-  p:before,
-  p:after { content: ''; }
-  p { text-indent: 0; }
-}
-p.noquotes {
-  text-indent: 0;
-  
-  &:before,
-  &:after { content: ''; }
-}
-
 dfn {
   font-style: normal;
   position: relative;

@@ -1,0 +1,41 @@
+.content {
+  @include media('>md') {
+    background-color: #fff;
+    display: inline-block;
+    float: right;
+    @include sizing(margin-top, -3.5);
+    @include sizing(padding, 1.5);
+    width: 60%;
+  }
+}
+
+.content a {
+  @extend .link--bordered;
+  @extend .link--background;
+}
+
+.content-heading {
+  margin-top: 0;
+  border-bottom: 2px #eee solid;
+  @include sizing(margin-bottom);
+  @include sizing(padding-bottom);
+
+  color: #444;
+  @include font-size(28px, false);
+  line-height: 32px;
+}
+
+.content-item {
+  & + .content-item {
+    @include sizing(padding-top, 2);
+  }
+  
+  & > * {
+    display: block;
+  }
+}
+.content-item__title {
+  @include font-size(18px);
+  color: #444;
+  margin: 0;
+}

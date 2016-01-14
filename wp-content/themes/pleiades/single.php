@@ -8,20 +8,20 @@
   <div class="inner mobile-only"><span class="img-caption hero-caption"><?php echo get_post_thumbnail_caption(); ?></span></div>
   <?php endif; ?>
 
-  <div class="container" id="container">
+  <main class="container">
 
-    <article class="post container-primary">
+    <article class="content post">
       <span class="post-date"><?php echo get_the_date(); ?></span>
       <h1 class="post-title"><?php the_title(); ?></h1>
       <div class="post-excerpt"><?php the_content(); ?></div>
     </article>
 
-    <div class="container-secondary">
-    <span class="img-caption hero-caption-desktop desktop-only"><?php echo get_post_thumbnail_caption(); ?></span>
+    <aside class="sidebar">
+      <span class="img-caption hero-caption-desktop desktop-only"><?php echo get_post_thumbnail_caption(); ?></span>
 
-      <a href="<?php echo site_url(); ?>/writing" class="container-secondary-back">Back to All Posts</a>
+      <a href="<?php echo site_url(); ?>/writing" class="sidebar-link link--bordered link--background">Back to All Posts</a>
       
-      <h2 class="container-tertiary">Categories</h2>
+      <h2 class="sidebar-heading">Categories</h2>
       <ul class="categories">
         <?php
         $categories = get_the_category();
@@ -31,13 +31,13 @@
         echo $menu;
         ?>
       </ul>
-    </div>
+    </aside>
 
     <nav class="pagination">
       <span class="pagination-prev"><?php next_post_link( '%link', '&larr; <span class="gt-lg">%title</span><span class="lt-lg">Newer Post</span>' ); ?></span>
       <span class="pagination-next"><?php previous_post_link( '%link', '<span class="gt-lg">%title</span><span class="lt-lg">Older Post</span> &rarr;' ); ?></span>
     </nav>
 
-  </div>
+  </main>
 
 <?php get_footer(); ?>

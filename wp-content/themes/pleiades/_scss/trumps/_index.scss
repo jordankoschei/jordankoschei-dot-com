@@ -1,0 +1,13 @@
+.blog,
+.category {
+
+  .post-title {
+    @include font-size(18px);
+    @include sizing(margin-bottom);
+
+    a {
+      color: #222 !important;
+    }
+  }
+
+}

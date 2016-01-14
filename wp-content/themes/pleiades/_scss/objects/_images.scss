@@ -1,0 +1,8 @@
+.img-caption {
+ color: #aaa;
+ display: inline-block;
+ @include font-size(14px, false);
+ font-style: italic;
+
+ a { color: #ccc; }
+}

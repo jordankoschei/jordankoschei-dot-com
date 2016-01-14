@@ -1,12 +1,4 @@
 img {
-	max-width: 100%;
-	vertical-align: middle;
+  max-width: 100%;
+  vertical-align: middle;
 }
-
-.img-caption {
- color: #aaa;
- display: inline-block;
- @include font-size(14px, false);
- font-style: italic; 
-}
-

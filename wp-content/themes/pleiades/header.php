@@ -12,7 +12,7 @@
   <script src="https://use.typekit.net/ciy2pci.js"></script>
   <script>try{Typekit.load({ async: false });}catch(e){}</script>
 
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.css">
 
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://www.jordankoschei.com/apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.jordankoschei.com/apple-touch-icon-114x114.png" />
@@ -41,7 +41,6 @@
   <header class="header">
     <div class="header-logo-container">
       <a href="<?php echo site_url(); ?>" class="header-logo">Jordan <dfn title="[kō-shī]"><span>Koschei</span></dfn></a>
-      <span class="header-tagline">Designer/Developer/Essayist</span>
     </div>
 
     <nav class="header-menu">

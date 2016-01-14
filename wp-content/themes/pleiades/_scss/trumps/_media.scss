@@ -1,0 +1,7 @@
+.mobile-only { @include media('>md') { display: none; } }
+.desktop-only { @include media('<md') { display: none; } }
+
+.lt-lg { @include media('>lg') { display: none; } }
+.gt-lg { @include media('<lg') { display: none; } }
+
+.is-hidden { visibility: hidden; }
