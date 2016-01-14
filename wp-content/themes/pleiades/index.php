@@ -1,20 +1,27 @@
 <?php get_header(); ?>
 
-  <div class="hero">
+  <?php
+  if( is_category() ) {
+    $cat = get_category( get_query_var('cat') );
+    $cat = $cat->slug;
+  }
+  ?>
+
+  <div class="hero <?php if( is_category() ) { echo 'hero--' . $cat; } ?>">
     <div class="inner">
       <h1 class="hero-title">Writing</h1>
     </div>
   </div>
 
   <div class="container">
-    <div class="container-primary">
+    <div class="content">
       
-      <h2 class="container-subtitle">
+      <h2 class="content-heading">
       <?php
       if( is_category() ) {
         echo 'Posts in &ldquo;' . single_cat_title('', false) . '&rdquo;';
       } else {
-        echo 'Recent Writing';
+        echo 'Recent Posts';
       }
       ?>
       </h2>
@@ -28,12 +35,12 @@
       ?>
       <article class="post">
         <div class="post-date"><?php echo get_the_date(); ?></div>
-        <h1 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+        <h1 class="post-title"><a href="<?php the_permalink(); ?>" class="link--bordered link--background"><?php the_title(); ?></a></h1>
         <div class="post-excerpt">
         <?php
         if( has_excerpt() ) {
           the_excerpt();
-          echo '<a href="'.get_the_permalink().'" class="post-more">Read more&hellip;</a>';
+          echo '<a href="'.get_the_permalink().'" class="post-more link--bordered link--background">Read more&hellip;</a>';
         } else {
           the_content();
         }
@@ -56,8 +63,8 @@
 
     </div>
 
-    <div class="container-secondary">
-      <h2 class="container-tertiary">Categories</h2>
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">Categories</h2>
       <ul class="categories">
         <?php
         $categories = get_categories();
@@ -77,24 +84,7 @@
         echo $menu;
         ?>
       </ul>
-
-      <?php if( ! is_category() ) : ?>
-      <!--
-      <h2 class="container-tertiary no-border">Selected Writing Elsewhere</h2>
-      <a href="http://alistapart.com/article/ux-for-the-enterprise" target="_blank" class="elsewhere">
-        <span class="elsewhere-venue">A List Apart</span>
-        <span class="elsewhere-title">UX for the Enterprise</span>
-        <span class="elsewhere-date">November 18, 2014</span>
-      </a>
-
-      <a href="http://theindustry.cc/author/jordan" target="_blank" class="elsewhere">
-        <span class="elsewhere-venue">The Industry</span>
-        <span class="elsewhere-title">Author Archives</span>
-        <span class="elsewhere-date">109 Articles</span>
-      </a>
-      -->
-      <?php endif; ?>
-    </div>
+    </aside>
 
     <nav class="pagination">
       <span class="pagination-prev"><?php echo get_previous_posts_link('&larr; Newer Posts'); ?></span>

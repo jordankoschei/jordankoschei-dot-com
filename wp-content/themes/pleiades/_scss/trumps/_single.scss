@@ -1,0 +1,31 @@
+.single {
+  
+  .content {
+    @include media('>md') {
+      @include sizing(padding-top, 1);
+    }
+  }
+
+  .post {
+    img {
+      @include sizing(margin-left, -1.5);
+      @include sizing(margin-right, -1.5);
+      @include sizing(margin-top, 1);
+      @include sizing(margin-bottom, 1);
+      max-width: none;
+      width: calc(100% + 81px);
+    }
+
+    .wp-caption {
+      @include sizing(margin-bottom, 1);
+      width: 100% !important;
+
+      img { margin-bottom: 0; }
+
+      p {
+        @extend .img-caption;
+      }
+    }
+  }
+
+}

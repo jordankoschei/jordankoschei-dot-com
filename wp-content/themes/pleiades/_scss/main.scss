@@ -1,39 +1,69 @@
-@import 'settings/colors';
-@import 'settings/fonts';
-@import 'settings/typo';
-@import 'settings/layout';
-@import 'settings/breakpoints';
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-@import 'generic/animate';
-@import 'generic/boxsizing';
-@import 'generic/media';
-@import 'generic/normalize';
-@import 'generic/typecsset';
-@import 'generic/monokai';
-@import 'generic/patternbolt';
+/**
+ * Typecsset
+ *
+ * Typecsset is a small, unopinionated library for creating beautifully set type
+ * on the web. Typecsset gives perfect vertical rhythm at any configurable font
+ * size, as well as many other typographical niceties.
+ */
+
+ //     _            _           _                           _ _
+ //    (_)          | |         | |                         | (_)
+ //     _ _ __   ___| |_   _  __| | ___   _ __ ___   ___  __| |_  __ _
+ //    | | '_ \ / __| | | | |/ _` |/ _ \ | '_ ` _ \ / _ \/ _` | |/ _` |
+ //    | | | | | (__| | |_| | (_| |  __/ | | | | | |  __/ (_| | | (_| |
+ //    |_|_| |_|\___|_|\__,_|\__,_|\___| |_| |_| |_|\___|\__,_|_|\__,_|
+ //
+ //      Simple, elegant and maintainable media queries in Sass
+ //                        v1.4.1
+ //
+ //                http://include-media.com
+ //
+ //         Authors: Eduardo Boucas (@eduardoboucas)
+ //                  Hugo Giraudel (@hugogiraudel)
+ //
+ //      This project is licensed under the terms of the MIT license
+
+
+@import 'settings/variables';
 
 @import 'tools/clearfix';
 @import 'tools/hidetext';
 @import 'tools/sizing';
 @import 'tools/typo';
 @import 'tools/vertical';
-@import 'tools/widths';
+@import 'tools/cover';
 
-@import 'base/form';
-@import 'base/hr';
+@import 'generic/boxsizing';
+@import 'generic/media';
+@import 'generic/monokai';
+@import 'generic/normalize';
+@import 'generic/typecsset';
+
 @import 'base/images';
+@import 'base/links';
 @import 'base/page';
 @import 'base/typo';
-@import 'base/links';
 
 @import 'objects/inner';
-@import 'objects/cta';
+@import 'objects/images';
+@import 'objects/hero';
+@import 'objects/container';
+@import 'objects/content';
+@import 'objects/sidebar';
+@import 'objects/header';
+@import 'objects/footer';
+@import 'objects/posts';
+@import 'objects/pagination';
+@import 'objects/categories';
+@import 'objects/home';
+@import 'objects/links';
 
-@import 'components/header';
-@import 'components/layout';
-@import 'components/speaking';
-@import 'components/post';
-@import 'components/index';
-@import 'components/footer';
-@import 'components/home';
-@import 'components/about';
+@import 'components/hero';
+@import 'components/categories';
+
+@import 'trumps/home';
+@import 'trumps/media';
+@import 'trumps/single';
+@import 'trumps/index';

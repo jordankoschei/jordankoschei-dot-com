@@ -1,0 +1,37 @@
+$categories: (
+  'design': #c0392b,
+  'education': #d35400,
+  'theology': #f39c12,
+  'hudson-valley': #27ae60,
+  'media': #2980b9,
+  'personal': #8e44ad,
+  'programming': #16a085,
+  'space': #2c3e50,
+  'technology': #7f8c8d,
+  'politics': #c0392b,
+  'all': #444
+);
+
+@each $slug, $color in $categories {
+  .hero--#{$slug}::after {
+    background-color: transparentize($color, .5);
+  }
+
+  .cat-item-#{$slug} {
+    a {
+      background-color: transparentize($color, .25);
+
+      &:hover,
+      &:focus {
+        background-color: lighten($color, 5%);
+      }
+    }
+
+    &.current-cat a {
+      background-color: lighten($color, 5%);
+
+      &:hover,
+      &:focus { background-color: lighten($color, 5%); }
+    }
+  }
+}

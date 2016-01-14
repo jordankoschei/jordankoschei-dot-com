@@ -1,0 +1,14 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $site-max-width;
+  @include sizing(padding, 1);
+  @include clearfix();
+  position: relative;
+  z-index: 1;
+
+  @include media('>sm') {
+    @include sizing(padding-left, 2);
+    @include sizing(padding-right, 2);
+  }
+}

@@ -1,0 +1,20 @@
+.post + .post {
+  @include sizing(padding-top, 2);
+}
+
+.post-title {
+  @include font-size(32px, false);
+  margin-top: 0;
+}
+
+.post-date {
+  color: #aaa;
+  margin-bottom: 4px;
+  @include font-size(15px, false);
+}
+
+.hero-caption-desktop {
+  @include sizing(margin-bottom, .5);
+  position: relative;
+  @include sizing(top, -.85);
+}

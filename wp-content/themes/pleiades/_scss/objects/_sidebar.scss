@@ -1,0 +1,51 @@
+.sidebar {
+  @include sizing(margin-bottom, 1.5);
+
+  @include media('>md') {
+    display: inline-block;
+    float: left;
+    margin-bottom: 0;
+    @include sizing(padding-right, 1);
+    width: 40%;
+  }
+}
+
+.sidebar-heading {
+  margin-top: 0;
+  border-bottom: 2px #eee solid;
+  display: inline-block;
+  width: 100%;
+  @include sizing(margin-bottom, .25);
+  @include sizing(padding-bottom, .5);
+
+  color: #444;
+  @include font-size(18px, false);
+  line-height: 20px;
+}
+
+.content + .sidebar {
+  @include media('<md') {
+    display: none;
+  }
+}
+
+.sidebar-link {
+  display: inline-block;
+  @include sizing(margin-bottom, 1.25);
+  @include font-size(15px);
+  position: relative;
+
+  &:before {
+    content: '\2190';
+    position: absolute;
+    left: -1.25em;
+    transition: all .125s ease;
+  }
+
+  &:hover,
+  &:focus {
+    &:before {
+      left: -1.5em;
+    }
+  }
+}

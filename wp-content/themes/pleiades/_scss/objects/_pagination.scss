@@ -1,0 +1,21 @@
+.pagination {
+  display: inline-block;
+  width: 100%;
+
+  border-top: 2px #eee solid;
+  @include sizing(margin-top, 1);
+  @include sizing(padding-top, .5);
+
+  a { @extend .link--background; }
+
+  @include media('>md') {
+    border-top: none;
+    padding-top: 0;
+    float: right;
+    width: 60%;
+
+    a { @include font-size(16px); }
+  }
+}
+.pagination-prev { float: left; }
+.pagination-next { float: right; }

@@ -1,0 +1,17 @@
+.link--bordered {
+  box-shadow: inset 0 -.125em 0 #eee;
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 -.125em 0 transparentize(map-get($colors, link), .95);
+  }
+  &:focus { outline: none; }
+}
+
+.link--background {
+  &:hover,
+  &:focus {
+    background-color: transparentize(map-get($colors, link), .95);
+  }
+  &:focus { outline: none; }
+}

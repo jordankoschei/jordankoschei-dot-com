@@ -1,0 +1,36 @@
+.hero {
+  @include sizing(padding-top, 1.5);
+  @include sizing(padding-bottom, 1.5);
+  width: 100%;
+
+  &.has-image {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:after { display: none; }
+  }
+
+  @include media('>md') {
+    @include sizing(padding-top, 2.5);
+    @include sizing(padding-bottom, 2.5);
+
+    min-height: 189px;
+  }
+}
+
+.hero-title {
+  color: #ecf0f1;
+  @include font-size(32px);
+  margin-bottom: 0;
+  text-align: center;
+  text-shadow: 0 1px 1px #2c3e50;
+
+  @include media('>md') {
+    text-align: left;
+    @include font-size(40px);
+  }
+
+  @include media('>lg') {
+    @include font-size(48px);
+  }
+}

@@ -1,0 +1,9 @@
+.hero {
+  background: url('../img/bgr.jpg') center 75% no-repeat #95a5a6;
+  background-size: cover;
+  @include cover(#95a5a6, .75);
+
+  @include media('>md') {
+    background-image: url('../img/bgr-lg.jpg');
+  }
+}
