@@ -9,7 +9,13 @@
 
   <div class="hero <?php if( is_category() ) { echo 'hero--' . $cat; } ?>">
     <div class="inner">
-      <h1 class="hero-title">Writing</h1>
+      <h1 class="hero-title">
+        <?php if( is_category() ) : ?>
+        <a href="<?php echo site_url(); ?>/writing">Writing</a>
+        <?php else: ?>
+        Writing
+        <?php endif; ?>
+      </h1>
     </div>
   </div>
 

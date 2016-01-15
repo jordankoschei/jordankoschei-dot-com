@@ -25,6 +25,8 @@
   text-align: center;
   text-shadow: 0 1px 1px #2c3e50;
 
+  a { color: #ecf0f1; }
+
   @include media('>md') {
     text-align: left;
     @include font-size(40px);
