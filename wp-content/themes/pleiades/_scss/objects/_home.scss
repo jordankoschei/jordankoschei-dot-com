@@ -15,12 +15,16 @@
   color: #fff;
 
   @include media('>md') {
-    @include font-size(24px);
-    @include sizing(margin-bottom, 1.5);
+    @include font-size(28px);
+    line-height: 38px;
+    @include sizing(margin-bottom, 2.5);
+
+    span { display: block; }
   }
 
   @include media('>lg') {
-    @include font-size(34px);
+    @include font-size(38px);
+    line-height: 48px;
   }
 }
 

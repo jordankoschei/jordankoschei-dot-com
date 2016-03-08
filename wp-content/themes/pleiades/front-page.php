@@ -2,12 +2,14 @@
 
   <div class="hero home-hero">
     <div class="inner">
-      <h1 class="hero-title home-title">Designer, developer, and&nbsp;writer.</h1>
+      <h1 class="hero-title home-title">Creating digital experiences through <span>design, writing, and&nbsp;code.</span></h1>
       <a href="<?php echo site_url(); ?>/about" class="home-cta">
         <span>Learn more</span>
       </a>
     </div>
   </div>
+
+<!--
 
   <main class="container home-container">
 
@@ -30,6 +32,6 @@
       <a href="http://alistapart.com/article/ux-for-the-enterprise" class="home-block-link link--bordered link--background">Continue reading &rarr;</a>
     </article>
     
-  </main>
+  </main> -->
 
 <?php get_footer(); ?>
