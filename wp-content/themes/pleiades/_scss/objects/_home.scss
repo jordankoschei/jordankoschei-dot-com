@@ -28,9 +28,11 @@
   }
 }
 
+// $ctaColor: #F0BF00;
+$ctaColor: #F9C700;
 .home-cta {
-  background: #E3D419;
-  background: linear-gradient(180deg, lighten(#E3D419, 0%), darken(#E3D419, 7.5%));
+  background: $ctaColor;
+  background: linear-gradient(180deg, lighten($ctaColor, 0%), darken($ctaColor, 7.5%));
   border-radius: 3px;
   box-shadow: 0 1px 1px transparentize(#000, .85);
   color: #fff;
@@ -45,7 +47,7 @@
     box-shadow: 0 3px 6px transparentize(#000, .85);
 
     span {
-      background: linear-gradient(180deg, lighten(#E3D419, 1%), darken(#E3D419, 6.5%));
+      background: linear-gradient(180deg, lighten($ctaColor, 1%), darken($ctaColor, 6.5%));
     }
     span:after { transform: translateX(10px); }
   }
@@ -56,7 +58,7 @@
     top: 1px;
 
     span {
-      background: linear-gradient(180deg, lighten(#E3D419, 0%), darken(#E3D419, 3.5%));
+      background: linear-gradient(180deg, lighten($ctaColor, 0%), darken($ctaColor, 3.5%));
       box-shadow: inset 0 1px 2px transparentize(#000, .9);
       transition: all 0s;
     }
@@ -65,18 +67,40 @@
   span {
     border-radius: 3px;
     display: inline-block;
-    @include sizing(padding-top, .4);
-    @include sizing(padding-bottom, .55);
-    @include sizing(padding-left, 1.75);
-    @include sizing(padding-right, 2.35);
+    @include sizing(padding-top, .25);
+    @include sizing(padding-bottom, .35);
+    @include sizing(padding-left, 1.25);
+    @include sizing(padding-right, 1.65);
     position: relative;
     transition: all .125s ease-out;
 
     &:after {
       content: '\2192';
       position: absolute;
-      right: 20%;
+      right: 11%;
       transition: all .125s ease-out;
+    }
+  }
+
+  @include media('>md') {
+    span {
+      @include sizing(padding-top, .35);
+      @include sizing(padding-bottom, .45);
+      @include sizing(padding-left, 1.5);
+      @include sizing(padding-right, 2);
+
+      &:after { right: 15%; }
+    }
+  }
+
+  @include media('>lg') {
+    span {
+      @include sizing(padding-top, .4);
+      @include sizing(padding-bottom, .55);
+      @include sizing(padding-left, 1.75);
+      @include sizing(padding-right, 2.35);
+
+      &:after { right: 20%; }
     }
   }
 }
