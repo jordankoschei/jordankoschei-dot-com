@@ -123,10 +123,29 @@ $ctaColor: #F9C700;
   width: 100%;
 
   &.is-sticky {
-    // $stickyColor: darken(#F9C700, 2.5%);
+    $stickyColor: darken(#F9C700, 7.5%);
     // border-top-color: $stickyColor;
 
-    // .color { color: $stickyColor; }
+    strong { color: $stickyColor; }
+    @include media('>sm') {
+      position: relative;
+
+      &:before {
+        background-color: #f8f8f8;
+        background-image: url('../img/featured.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 2.5rem;
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: -1.35rem;
+        top: 2.75rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+      }
+    }
   }
 
   &:last-child { margin-bottom: 0; }

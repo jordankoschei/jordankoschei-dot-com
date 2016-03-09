@@ -26,15 +26,18 @@
 
     $source = get_post_meta(get_the_id(), 'source', true) ? get_post_meta(get_the_id(), 'source', true) : 'default';
     if( $source != 'default' ) {
-      $sourceNice = get_post_meta(get_the_id(), 'sourceNice', true) ? get_post_meta(get_the_id(), 'sourceNice', true) . ' &bull; ' : ucfirst(get_post_meta(get_the_id(), 'source', true)) . ' &bull; ';
-    } else { $sourceNice = ''; }
+      $sourceNice = get_post_meta(get_the_id(), 'sourceNice', true) ? get_post_meta(get_the_id(), 'sourceNice', true) : ucfirst(get_post_meta(get_the_id(), 'source', true));
+    } else { $sourceNice = 'jordankoschei.com'; }
     $url = get_post_meta(get_the_id(), 'url', true);
     ?>
     
     <article class="home-container-block home-category-<?php echo $category; ?> post-source-<?php echo $source; ?> <?php if( is_sticky() ) { echo 'is-sticky'; } ?>">
       <div class="home-block-content">
         <span class="home-block-heading">
-          <strong><?php echo $sourceNice; ?></strong><?php echo get_the_date(); ?>
+          <?php if(is_sticky()) : ?>
+            <strong>Featured</strong> &bull; 
+          <?php endif; ?>
+          <?php echo $sourceNice; ?>
         </span>
         <?php if( ! get_post_meta(get_the_id(), 'url', true) ) : ?>
         <h1 class="home-block-title"><a href="<?php the_permalink(); ?>" class="link--bordered link--background"><?php the_title(); ?></a></h1>
