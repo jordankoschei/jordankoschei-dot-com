@@ -1,6 +1,7 @@
 .content {
   @include media('>md') {
     background-color: #fff;
+    box-shadow: 0 1px 4px transparentize(#000, .975);
     display: inline-block;
     float: right;
     @include sizing(margin-top, -3.5);
