@@ -126,7 +126,7 @@ $ctaColor: #F9C700;
     $stickyColor: darken(#F9C700, 7.5%);
     // border-top-color: $stickyColor;
 
-    strong { color: $stickyColor; }
+    // strong { color: $stickyColor; }
     @include media('>sm') {
       position: relative;
 
