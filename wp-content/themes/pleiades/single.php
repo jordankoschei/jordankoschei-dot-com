@@ -1,3 +1,11 @@
+<?php
+$url = get_post_meta(get_the_id(), 'url', true);
+if( $url ) {
+  wp_redirect( $url, 301 );
+  exit;
+}
+?>
+
 <?php get_header(); ?>
 
   <?php $has_image = has_post_thumbnail(); ?>
