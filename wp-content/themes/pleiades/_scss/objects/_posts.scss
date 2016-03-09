@@ -52,3 +52,5 @@
 .post-source-medium .post-title:before { background-image: url('../img/source-medium.png'); }
 .post-source-industry .post-title:before { background-image: url('../img/source-industry.png'); }
 .post-source-alistapart .post-title:before { background-image: url('../img/source-ala.png'); }
+
+.single .post-title:before { display: none !important; }

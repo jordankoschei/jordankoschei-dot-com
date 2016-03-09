@@ -4,10 +4,11 @@ html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
-    background-color: #f8f8f8;
+    background-color: map-get($colors, 'footer');
 }
 
 body {
+  background-color: #f8f8f8;
   color: #444;
   font-family: map-get($fonts, serif);
   min-width: 320px;
