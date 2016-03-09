@@ -10,17 +10,14 @@
   </div>
 
   <?php
-  $stickyPosts = get_posts(array('post__in' => get_option('sticky_posts')));
-  if( ! $stickyPosts ) { $num = 3; }
-  else {
-    $num = 3 - count($stickyPosts);
-  }
-  $recentPosts = get_posts('posts_per_page='.$num);
-
-  if( count($stickyPosts) > 0 ) {
+  $num = 3;
+  if( get_option('sticky_posts') ) {
+    $stickyPosts = get_posts(array('post__in' => get_option('sticky_posts')));
+    $num = $num - count($stickyPosts);
+    $recentPosts = get_posts('posts_per_page='.$num);
     $allPosts = array_merge($stickyPosts, $recentPosts);
   } else {
-    $allPosts = $recentPosts;
+    $allPosts = get_posts('posts_per_page='.$num);
   }
   ?>
   <main class="container home-container">
