@@ -7,24 +7,26 @@
   margin-top: 0;
   position: relative;
 
-  &:before {
-    background-color: #f4f4f4;
-    background-image: url('../img/source.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 3rem;
-    // border: 1px #eee solid;
-    box-shadow: 0 1px 4px transparentize(#000, .85);
-    content: '';
-    display: inline-block;
-    margin-left: -1.5rem;
-    margin-top: -.55rem;
-    position: absolute;
-    @include sizing(left, -1.5);
-    top: 0;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
+  @include media('>md') {
+    &:before {
+      background-color: #f4f4f4;
+      background-image: url('../img/source.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 2.5rem;
+      // border: 1px #eee solid;
+      box-shadow: 0 0 4px transparentize(#000, .85);
+      content: '';
+      display: inline-block;
+      margin-left: -1.25rem;
+      margin-top: -.45rem;
+      position: absolute;
+      @include sizing(left, -1.5);
+      top: 0;
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 50%;
+    }
   }
 }
 
