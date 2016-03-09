@@ -62,7 +62,13 @@
         <div class="post-date"><?php echo get_the_date(); ?> &bull; <?php echo $sourceNice; ?></div>
         <h1 class="post-title"><a href="<?php echo $url; ?>" target="_blank"><?php the_title(); ?> <i>&rarr;</i></a></h1>
         <div class="post-excerpt">
-          <?php the_content(); ?>
+          <?php
+          if( has_excerpt() ) {
+            the_excerpt();
+          } else {
+            the_content();
+          }
+          ?>
           <a href="<?php echo $url; ?>" target="_blank" class="post-more link--bordered link--background">Read the article&rarr;</a>
         </div>
       </article>
