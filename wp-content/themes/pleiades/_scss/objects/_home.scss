@@ -238,6 +238,17 @@ $ctaColor: #98A4A5;
       background: linear-gradient(180deg, lighten($ctaColor, 0%), darken($ctaColor, 3.5%));
     }
   }
+
+  @include media('>lg') {
+    span {
+      @include sizing(padding-top, .35);
+      @include sizing(padding-bottom, .45);
+      @include sizing(padding-left, 1.5);
+      @include sizing(padding-right, 2);
+
+      &:after { right: 15%; }
+    }
+  }
 }
 
 

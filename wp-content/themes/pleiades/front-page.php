@@ -29,7 +29,7 @@
     
     <article class="home-container-block home-category-<?php echo $category; ?> post-source-<?php echo $source; ?>">
       <div class="home-block-content">
-        <span class="home-block-heading"><?php echo $sourceNice; ?><?php echo get_the_date(); ?></span>
+        <span class="home-block-heading"><strong><?php echo $sourceNice; ?></strong><?php echo get_the_date(); ?></span>
         <?php if( ! get_post_meta(get_the_id(), 'url', true) ) : ?>
         <h1 class="home-block-title"><a href="<?php the_permalink(); ?>" class="link--bordered link--background"><?php the_title(); ?></a></h1>
         <?php else: ?>

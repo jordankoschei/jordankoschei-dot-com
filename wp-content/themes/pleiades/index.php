@@ -41,6 +41,8 @@
       $sourceNice = get_post_meta(get_the_id(), 'sourceNice', true) ? get_post_meta(get_the_id(), 'sourceNice', true) : get_post_meta(get_the_id(), 'source', true);
       $url = get_post_meta(get_the_id(), 'url', true);
 
+      if( $source == 'industry' ) { $sourceNice = 'The Industry'; }
+
       if( ! get_post_meta(get_the_id(), 'url', true) ) :
       ?>
       <article class="post post-source-<?php echo $source; ?>">
@@ -59,7 +61,7 @@
       </article>
       <?php else: ?>
       <article class="post post-source-<?php echo $source; ?>">
-        <div class="post-date"><?php echo get_the_date(); ?> &bull; <?php echo $sourceNice; ?></div>
+        <div class="post-date"><strong><?php echo $sourceNice; ?></strong> &bull; <?php echo get_the_date(); ?></div>
         <h1 class="post-title"><a href="<?php echo $url; ?>" target="_blank"><?php the_title(); ?> <i>&rarr;</i></a></h1>
         <div class="post-excerpt">
           <?php
