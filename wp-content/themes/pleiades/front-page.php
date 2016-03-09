@@ -17,7 +17,7 @@
   }
   $recentPosts = get_posts('posts_per_page='.$num);
 
-  if( $stickyPosts ) {
+  if( count($stickyPosts) > 0 ) {
     $allPosts = array_merge($stickyPosts, $recentPosts);
   } else {
     $allPosts = $recentPosts;
