@@ -34,9 +34,6 @@
     <article class="home-container-block home-category-<?php echo $category; ?> post-source-<?php echo $source; ?> <?php if( is_sticky() ) { echo 'is-sticky'; } ?>">
       <div class="home-block-content">
         <span class="home-block-heading">
-          <?php if(is_sticky()) : ?>
-            <strong><span class="color">Featured</span> &bull; </strong>
-          <?php endif; ?>
           <strong><?php echo $sourceNice; ?></strong><?php echo get_the_date(); ?>
         </span>
         <?php if( ! get_post_meta(get_the_id(), 'url', true) ) : ?>
