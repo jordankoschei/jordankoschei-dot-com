@@ -37,9 +37,13 @@
       while( have_posts() ) :
       the_post();
 
-      if( ! get_post_meta(get_the_id(), 'justalink', true) ) :
+      $source = get_post_meta(get_the_id(), 'source', true) ? get_post_meta(get_the_id(), 'source', true) : 'default';
+      $sourceNice = get_post_meta(get_the_id(), 'sourceNice', true) ? get_post_meta(get_the_id(), 'sourceNice', true) : get_post_meta(get_the_id(), 'source', true);
+      $url = get_post_meta(get_the_id(), 'url', true);
+
+      if( ! get_post_meta(get_the_id(), 'url', true) ) :
       ?>
-      <article class="post">
+      <article class="post post-source-<?php echo $source; ?>">
         <div class="post-date"><?php echo get_the_date(); ?></div>
         <h1 class="post-title"><a href="<?php the_permalink(); ?>" class="link--bordered link--background"><?php the_title(); ?></a></h1>
         <div class="post-excerpt">
@@ -54,11 +58,12 @@
         </div>
       </article>
       <?php else: ?>
-      <article class="post post-justalink">
-        <div class="post-date"><?php echo get_the_date(); ?></div>
-        <h1 class="post-title"><a href="<?php echo get_post_meta(get_the_id(), 'justalink-link', true); ?>" target="_blank"><?php the_title(); ?> <i>&rarr;</i></a></h1>
+      <article class="post post-source-<?php echo $source; ?>">
+        <div class="post-date"><?php echo get_the_date(); ?> &bull; <?php echo $sourceNice; ?></div>
+        <h1 class="post-title"><a href="<?php echo $url; ?>" target="_blank"><?php the_title(); ?> <i>&rarr;</i></a></h1>
         <div class="post-excerpt">
           <?php the_content(); ?>
+          <a href="<?php echo $url; ?>" target="_blank" class="post-more link--bordered link--background">Read the article&rarr;</a>
         </div>
       </article>
       <?php

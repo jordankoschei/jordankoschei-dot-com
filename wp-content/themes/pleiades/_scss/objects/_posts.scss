@@ -5,12 +5,34 @@
 .post-title {
   @include font-size(32px, false);
   margin-top: 0;
+  position: relative;
+
+  &:before {
+    background-color: #f4f4f4;
+    background-image: url('../img/source.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 3rem;
+    // border: 1px #eee solid;
+    box-shadow: 0 1px 4px transparentize(#000, .85);
+    content: '';
+    display: inline-block;
+    margin-left: -1.5rem;
+    margin-top: -.55rem;
+    position: absolute;
+    @include sizing(left, -1.5);
+    top: 0;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+  }
 }
 
 .post-date {
   color: #aaa;
   margin-bottom: 4px;
   @include font-size(15px, false);
+  text-transform: capitalize;
 }
 
 .hero-caption-desktop {
@@ -18,3 +40,13 @@
   position: relative;
   @include sizing(top, -.85);
 }
+
+.post-source-default {
+  .post-title {
+    &:before { display: none; }
+  }
+}
+
+.post-source-medium .post-title:before { background-image: url('../img/source-medium.png'); }
+.post-source-industry .post-title:before { background-image: url('../img/source-industry.png'); }
+.post-source-alistapart .post-title:before { background-image: url('../img/source-ala.png'); }
