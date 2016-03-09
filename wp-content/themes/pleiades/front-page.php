@@ -10,11 +10,15 @@
   </div>
 
   <?php
-  $recentPosts = get_posts('posts_per_page=3');
+  $stickyPosts = get_posts(array('post__in' => get_option('sticky_posts')));
+  $num = 3 - count($stickyPosts);
+  $recentPosts = get_posts('posts_per_page='.$num);
+
+  $allPosts = array_merge($stickyPosts, $recentPosts);
   ?>
   <main class="container home-container">
     <?php
-    foreach( $recentPosts as $post ) :
+    foreach( $allPosts as $post ) :
     setup_postdata($post);
 
     $category = get_the_category();
@@ -27,9 +31,14 @@
     $url = get_post_meta(get_the_id(), 'url', true);
     ?>
     
-    <article class="home-container-block home-category-<?php echo $category; ?> post-source-<?php echo $source; ?>">
+    <article class="home-container-block home-category-<?php echo $category; ?> post-source-<?php echo $source; ?> <?php if( is_sticky() ) { echo 'is-sticky'; } ?>">
       <div class="home-block-content">
-        <span class="home-block-heading"><strong><?php echo $sourceNice; ?></strong><?php echo get_the_date(); ?></span>
+        <span class="home-block-heading">
+          <?php if(is_sticky()) : ?>
+            <strong><span class="color">Featured</span> &bull; </strong>
+          <?php endif; ?>
+          <strong><?php echo $sourceNice; ?></strong><?php echo get_the_date(); ?>
+        </span>
         <?php if( ! get_post_meta(get_the_id(), 'url', true) ) : ?>
         <h1 class="home-block-title"><a href="<?php the_permalink(); ?>" class="link--bordered link--background"><?php the_title(); ?></a></h1>
         <?php else: ?>

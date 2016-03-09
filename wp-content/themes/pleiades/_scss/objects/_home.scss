@@ -122,6 +122,13 @@ $ctaColor: #F9C700;
   text-align: left;
   width: 100%;
 
+  &.is-sticky {
+    // $stickyColor: darken(#F9C700, 2.5%);
+    // border-top-color: $stickyColor;
+
+    // .color { color: $stickyColor; }
+  }
+
   &:last-child { margin-bottom: 0; }
 
   // @include media('>md') {

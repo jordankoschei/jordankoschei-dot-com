@@ -1,6 +1,12 @@
 <?php get_header(); ?>
 
   <?php
+  $args = array( 'ignore_sticky_posts' => 1 );
+  global $wp_query;
+  query_posts( array_merge($wp_query->query, $args) );
+  ?>
+
+  <?php
   if( is_category() ) {
     $cat = get_category( get_query_var('cat') );
     $cat = $cat->slug;
