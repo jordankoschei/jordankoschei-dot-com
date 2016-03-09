@@ -9,32 +9,44 @@
     </div>
   </div>
 
+  <?php
+  $recentPosts = get_posts('posts_per_page=6');
+  ?>
   <main class="container home-container">
-  </main>
+    <?php
+    foreach( $recentPosts as $post ) :
+    setup_postdata($post);
 
-<!--
+    $category = get_the_category();
+    $category = $category[0]->slug;
 
-  <main class="container home-container">
-
-    <article class="home-container-block">
-      <span class="home-block-heading">Recent Writing</span>
-      <?php
-      $post = get_posts('posts_per_page=1');
-      $post = $post[0];
-      setup_postdata($post);
-      ?>
-      <h2 class="home-block-title"><a href="<?php the_permalink(); ?>" class="link--bordered link--background"><?php the_title(); ?></a></h2>
-      <?php the_excerpt(); ?>
-      <a href="<?php the_permalink(); ?>" class="home-block-link link--bordered link--background">Continue reading &rarr;</a>
-    </article>
-
-    <article class="home-container-block">
-      <span class="home-block-heading">Elsewhere &bull; <em>A List Apart</em></span>
-      <h2 class="home-block-title"><a href="http://alistapart.com/article/ux-for-the-enterprise" class="link--bordered link--background">UX for the Enterprise</a></h2>
-      <p>Enterprise UX often involves navigating cumbersome processes, ancient technology, and clients skeptical of design’s value. Yet Fortune 500 companies are often the ones most in need of well-designed internal tools. This article talks about common problems lurking in global organizations, and how we can improve people’s lives by giving internal tools the same attention as consumer interfaces.</p>
-      <a href="http://alistapart.com/article/ux-for-the-enterprise" class="home-block-link link--bordered link--background">Continue reading &rarr;</a>
-    </article>
+    $source = get_post_meta(get_the_id(), 'source', true) ? get_post_meta(get_the_id(), 'source', true) : 'default';
+    if( $source != 'default' ) {
+      $sourceNice = get_post_meta(get_the_id(), 'sourceNice', true) ? ' &bull; ' . get_post_meta(get_the_id(), 'sourceNice', true) : ' &bull; ' . ucfirst(get_post_meta(get_the_id(), 'source', true));
+    } else { $sourceNice = ''; }
+    $url = get_post_meta(get_the_id(), 'url', true);
+    ?>
     
-  </main> -->
+    <article class="home-container-block home-category-<?php echo $category; ?> post-source-<?php echo $source; ?>">
+      <div class="home-block-content">
+        <span class="home-block-heading"><?php echo get_the_date(); ?><?php echo $sourceNice; ?></span>
+        <?php if( ! get_post_meta(get_the_id(), 'url', true) ) : ?>
+        <h1 class="home-block-title"><a href="<?php the_permalink(); ?>" class="link--bordered link--background"><?php the_title(); ?></a></h1>
+        <?php else: ?>
+        <h1 class="home-block-title"><a href="<?php echo $url; ?>" class="link--bordered link--background" target="_blank"><?php the_title(); ?> <i>&rarr;</i></a></h1>
+        <?php endif; ?>
+
+        <?php the_excerpt(); ?>
+      </div>
+
+      <?php if( ! get_post_meta(get_the_id(), 'url', true) ) : ?>
+      <a href="<?php echo get_the_permalink(); ?>" class="post-more link--bordered link--background home-block-link">Read more&hellip;</a>
+      <?php else: ?>
+      <a href="<?php echo $url; ?>" target="_blank" class="post-more link--bordered link--background home-block-link">Read the article&rarr;</a>
+      <?php endif; ?>
+    </article>
+
+    <?php endforeach; ?>
+  </main>
 
 <?php get_footer(); ?>
