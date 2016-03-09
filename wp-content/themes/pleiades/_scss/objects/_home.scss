@@ -160,24 +160,28 @@ $ctaColor: #F9C700;
 
   @include media('>md') {
     margin-bottom: 1em;
+    position: relative;
     width: calc(33.333% - .75em);
 
     &:nth-of-type(1),
     &:nth-of-type(4) {
       margin-left: 0;
       margin-right: .75em;
+      z-index: 3;
     }
 
     &:nth-of-type(2),
     &:nth-of-type(5) {
       margin-left: .375em;
       margin-right: .375em;
+      z-index: 2;
     }
 
     &:nth-of-type(3),
     &:nth-of-type(6) {
       margin-left: .75em;
       margin-right: 0;
+      z-index: 1;
     }
   }
 }
