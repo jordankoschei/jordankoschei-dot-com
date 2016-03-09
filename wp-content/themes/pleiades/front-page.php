@@ -11,7 +11,10 @@
 
   <?php
   $stickyPosts = get_posts(array('post__in' => get_option('sticky_posts')));
-  $num = 3 - count($stickyPosts);
+  if( ! $stickyPosts ) { $num = 3; }
+  else {
+    $num = 3 - count($stickyPosts);
+  }
   $recentPosts = get_posts('posts_per_page='.$num);
 
   $allPosts = array_merge($stickyPosts, $recentPosts);
