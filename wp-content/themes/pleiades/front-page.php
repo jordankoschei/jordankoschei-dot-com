@@ -9,6 +9,9 @@
     </div>
   </div>
 
+  <main class="container home-container">
+  </main>
+
 <!--
 
   <main class="container home-container">
