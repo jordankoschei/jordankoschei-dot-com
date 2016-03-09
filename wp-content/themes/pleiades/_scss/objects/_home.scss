@@ -29,6 +29,7 @@
 }
 
 $ctaColor: #F9C700;
+// $ctaColor: map-get($colors, 'link');
 .home-cta {
   background: $ctaColor;
   background: linear-gradient(180deg, lighten($ctaColor, 0%), darken($ctaColor, 7.5%));
@@ -112,7 +113,7 @@ $ctaColor: #F9C700;
 
 .home-container-block {
   box-shadow: 0 1px 4px transparentize(#000, .975);
-  border-top: 4px solid;
+  border-top: 4px darken(#8D999A, 10%) solid;
   display: inline-block;
   float: left;
   @include sizing(padding, 1);

@@ -9,13 +9,13 @@
 
   @include media('>md') {
     &:before {
-      background-color: #f4f4f4;
+      background-color: #f8f8f8;
       background-image: url('../img/source.png');
       background-position: center;
       background-repeat: no-repeat;
       background-size: 2.5rem;
       // border: 1px #eee solid;
-      box-shadow: 0 0 4px transparentize(#000, .85);
+      // box-shadow: 0 0 4px transparentize(#000, .85);
       content: '';
       display: inline-block;
       margin-left: -1.25rem;

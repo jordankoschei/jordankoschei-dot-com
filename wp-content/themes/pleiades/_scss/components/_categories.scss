@@ -36,6 +36,6 @@ $categories: (
   }
 
   .home-category-#{$slug} {
-    border-top-color: transparentize($color, .25);
+    // border-top-color: transparentize($color, .25);
   }
 }
