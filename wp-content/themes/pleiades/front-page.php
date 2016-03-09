@@ -17,7 +17,11 @@
   }
   $recentPosts = get_posts('posts_per_page='.$num);
 
-  $allPosts = array_merge($stickyPosts, $recentPosts);
+  if( $stickyPosts ) {
+    $allPosts = array_merge($stickyPosts, $recentPosts);
+  } else {
+    $allPosts = $recentPosts;
+  }
   ?>
   <main class="container home-container">
     <?php
