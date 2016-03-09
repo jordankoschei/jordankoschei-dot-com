@@ -2,7 +2,7 @@
     <div class="inner">
       <form class="newsletter" action="https://tinyletter.com/jordankoschei" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/jordankoschei', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
         <div class="newsletter-content">
-          <h3 class="newsletter-title">Newsletter</h3>
+          <h3 class="newsletter-title">Random Access Newsletter</h3>
           <p class="newsletter-desc">A weekly(ish) list of things worth your attention from the worlds of design, technology, the arts, and more.</p>
         </div>
         <div class="newsletter-form">
