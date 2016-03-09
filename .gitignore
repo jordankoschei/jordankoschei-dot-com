@@ -13,4 +13,4 @@ wp-content/uploads/
 wp-content/wp-cache-config.php
 *.scssc
 wp-content/themes/pleiades/_
-# wp-content/plugins/
+wp-content/plugins/
