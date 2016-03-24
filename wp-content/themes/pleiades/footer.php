@@ -1,13 +1,13 @@
   <footer class="footer">
     <div class="inner">
-      <form class="newsletter" action="https://tinyletter.com/jordankoschei" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/jordankoschei', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+      <form class="newsletter" action="//jordankoschei.us1.list-manage.com/subscribe/post?u=2e50a96f6fcf44153b19e1545&amp;id=e321026d83" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
         <div class="newsletter-content">
           <h3 class="newsletter-title">Random Access Newsletter</h3>
           <p class="newsletter-desc">A weekly(ish) list of things worth your attention from the worlds of design, technology, the arts, and more.</p>
         </div>
         <div class="newsletter-form">
-          <input class="newsletter-input" type="text" name="email" id="tlemail" placeholder="What's your email?">
-          <input type="hidden" value="1" name="embed">
+          <input class="newsletter-input" type="email" name="EMAIL" id="mce-EMAIL" placeholder="What's your email?">
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2e50a96f6fcf44153b19e1545_e321026d83" tabindex="-1" value=""></div>
           <button class="newsletter-button" type="submit">Subscribe</button>
         </div>
       </form>
